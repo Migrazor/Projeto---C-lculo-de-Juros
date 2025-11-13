@@ -1,0 +1,150 @@
+Coded in CodeBlocks
+
+#include <iostream>
+#include <locale>
+#include <windows.h>
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+
+    int choice, tempo;
+    float capital, investimento, juros, montante, taxa;
+
+        // Aqui é onde perguntamos qual das opções o usuário deseja simular um cenário de investimentos.
+    do{
+        cout << "Escolha uma das aplicações financeiras na Empresa Mequetrefe e Associados:";
+        cout << "\n[1] POUPANÇA SIMPLES \n Mínimo de investimento: R$1000.00 \n Mínimo de tempo investido: 3 meses" << endl;
+        cout << "\n[2] POUPANÇA PLUS \n Mínimo de investimento: R$5000.00 \n Mínimo de tempo investido: 6 meses" << endl;
+        cout << "\n[3] POUPANÇA MEGA \n Mínimo de investimento: R$10000.00 \n Mínimo de tempo investido: 12 meses" << endl;
+        cin >> choice;
+
+        if (choice > 3){
+            cout << "\nOperação inválida... Escolha outra opção!\n";
+        }
+
+    }while (choice > 3);
+    system("cls || clear");
+
+    switch(choice){
+    case 1:
+    /*
+    1-) Poupança Simples -
+    Capital mínimo: 1.000,00; Juros: 0,75% ao mês; Tempo mínimo de aplicação: 3 meses.
+    */
+        cout << "Você escolheu a Poupança Simples!! \n Mínimo de investimento: R$1000.00 \n Mínimo de tempo investido: 3 meses\n" << endl;
+
+    // Coleta dos valores de capital e tempo investidos, conferindo se são suficientes para o mínimo necessário.
+            do{
+                cout << "\nQuanto você planeja investir por mês? R$";
+                cin >> capital;
+                cout << "Quanto meses serão investidos? ";
+                cin >> tempo;
+
+                    // Mensagem caso algumas das exigências não sejam cumpridas.
+                    if(investimento < 1000.00 || tempo < 3){
+                        cout << "\nOs valores de investimento ou tempo estão abaixo do mínimo necessário, por favor escreva novamente.\n";
+                    }
+            }while(capital < 1000.00 || tempo < 3);
+
+        system("cls || clear");
+            cout << "Com os dados coletados, calcularemos o juros rendido no cenário descrito\n [...]\n";
+        Sleep(2500);
+
+        // Aqui armazenamos os cálculos que serão exibidos como resultado do cenário descrito:
+            taxa = 0.75 / 100;                // — Taxa percentual de lucro por mês da opção escolhida;
+            juros = capital * taxa * tempo;  // — Cálculo do juros recebido;
+            montante = capital + juros;     // — Valor total adquirido ao fim da simulação;
+
+        // Saída formatada das informações inseridas e cálculadas:
+            cout << "\n[ " << "POUPANÇA SIMPLES" << " ]";
+            cout << "\n Valor aplicado por mês: R$" << capital;
+            cout << "\n Meses aplicados: " << tempo << " meses \n -=-=-=-=-";
+            cout << "\n Juros rendido por mês: R$" << capital << " * 0.75%" << " = R$" << juros / tempo;
+            cout << "\n Juros rendido total: R$" << juros / tempo << " * " << tempo << " meses" << " = R$" << juros;
+            cout << "\n Valor final: R$" << capital << " + R$" << juros << " = R$" << montante;
+
+
+            break;
+
+    case (2):
+    /*
+    2-) Poupança Plus —
+    Capital mínimo: 5.000,00; Juros: 1,00% ao mês; Tempo mínimo de aplicação: 6 meses.
+    */
+        cout << "Você escolheu a Poupança Plus!! \n Mínimo de investimento: R$5000.00 \n Mínimo de tempo investido: 6 meses\n";
+
+    // Coleta dos valores de capital e tempo investidos, conferindo se são suficientes para o mínimo necessário.
+            do{
+                cout << "\nQuanto você planeja investir por mês? R$";
+                cin >> capital;
+                cout << "Quanto meses serão investidos? ";
+                cin >> tempo;
+
+                    if(investimento < 5000.00 || tempo < 6){
+                        cout << "\nOs valores de investimento ou tempo estão abaixo do mínimo necessário, por favor escreva novamente.\n";
+                    }
+
+            }while(capital < 5000.00 || tempo < 6);
+
+        system("cls || clear");
+            cout << "Com os dados coletados, calcularemos o juros rendido no cenário descrito\n [...]\n";
+        Sleep(2500);
+
+    // Aqui armazenamos os cálculos que serão exibidos como resultado do cenário descrito:
+            taxa = 1.00 / 100;                // — Taxa percentual de lucro por mês da opção escolhida;
+            juros = capital * taxa * tempo;  // — Cálculo do juros recebido;
+            montante = capital + juros;     // — Valor total adquirido ao fim da simulação;
+
+        // Saída formatada das informações inseridas e cálculadas:
+            cout << "\n[ " << "POUPANÇA PLUS" << " ]";
+            cout << "\n Valor aplicado por mês: R$" << capital;
+            cout << "\n Meses aplicados: " << tempo << " meses \n -=-=-=-=-";
+            cout << "\n Juros rendido por mês: R$" << capital << " * 1.00%" << " = R$" << juros / tempo;
+            cout << "\n Juros rendido total: R$" << juros / tempo << " * " << tempo << " meses" << " = R$" << juros;
+            cout << "\n Valor final: R$" << capital << " + R$" << juros << " = R$" << montante;
+
+            break;
+
+    case 3:
+    /*
+    3-) Poupança Mega —
+    Capital mínimo: 10.000,00; Juros: 1,25% ao mês; Tempo mínimo de aplicação: 12 meses.
+    */
+        cout << "Você escolheu a Poupança Mega!! \n Mínimo de investimento: R$10000.00 \n Mínimo de tempo investido: 12 meses\n";
+
+    // Coleta dos valores de capital e tempo investidos, conferindo se são suficientes para o mínimo necessário.
+            do{
+                cout << "\nQuanto você planeja investir por mês? R$";
+                cin >> capital;
+                cout << "Quanto meses serão investidos? ";
+                cin >> tempo;
+
+                    if(investimento < 10000.00 || tempo < 12){
+                        cout << "\nOs valores de investimento ou tempo estão abaixo do mínimo necessário, por favor escreva novamente.\n";
+                    }
+
+            }while(capital < 10000.00 || tempo < 12);
+
+        system("cls || clear");
+            cout << "Com os dados coletados, calcularemos o juros rendido no cenário descrito\n [...]\n";
+        Sleep(2500);
+
+    // Aqui armazenamos os cálculos que serão exibidos como resultado do cenário descrito:
+            taxa = 1.25 / 100;                // — Taxa percentual de lucro por mês da opção escolhida;
+            juros = capital * taxa * tempo;  // — Cálculo do juros recebido;
+            montante = capital + juros;     // — Valor total adquirido ao fim da simulação.
+
+        // Saída formatada das informações inseridas e cálculadas:
+            cout << "\n[ " << "POUPANÇA PLUS" << " ]";
+            cout << "\n Valor aplicado por mês: R$" << capital;
+            cout << "\n Meses aplicados: " << tempo << " meses \n -=-=-=-=-";
+            cout << "\n Juros rendido por mês: R$" << capital << " * 1.25%" << " = R$" << juros / tempo;
+            cout << "\n Juros rendido total: R$" << juros / tempo << " * " << tempo << " meses" << " = R$" << juros;
+            cout << "\n Valor final: R$" << capital << " + R$" << juros << " = R$" << montante;
+
+            break;
+        }
+    }
